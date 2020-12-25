@@ -1,4 +1,4 @@
-
+import java.util.HashSet;
 
 public class Main {
 
@@ -11,23 +11,23 @@ public class Main {
             resArr[i] = num % 10;
             num /= 10;
             i++;
-        }while (num != 0);
+        } while (num != 0);
 
-        for (int val : resArr){
+        for (int val : resArr) {
             int v1 = val;
-            v1 +=2;
+            v1 += 2;
 
-            int mod = val % v1;
+            int mod = val % (v1==0 ? v1+1 : v1);
 
-            res = res + val*v1+mod * Math.floorDiv(i,2);
+            res = res + val * v1 + mod * Math.floorDiv(i, 2);
 
         }
 
-     return String.valueOf(res);
+        return String.valueOf(res);
     }
 
     public static void main(String[] args) {
-        System.out.println(hash(123));
+        System.out.println(hash(0));
         System.out.println(hash(125));
         System.out.println(hash(126));
         System.out.println(hash(123));
